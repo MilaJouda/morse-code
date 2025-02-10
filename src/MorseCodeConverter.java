@@ -1,5 +1,3 @@
-package Automation.morscode;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +34,7 @@ public class MorseCodeConverter {
         } catch (Exception e) {
             return "Ett fel uppstod vid konvertering från engelska text till morsekod.";
         }
-        return result.toString().trim();
+        return result.trim();
     }
 
     // konverter morsekod till engelsk text.
@@ -58,6 +56,6 @@ public class MorseCodeConverter {
             return " Ett fel uppstod vid konvertering från morsekod till engelsk text.";
 
         }
-        return result.toString();
+        return result;
     }
 }

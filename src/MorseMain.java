@@ -1,4 +1,3 @@
-package Automation.morscode;
 import java.util.Scanner;
 public class MorseMain {
 

@@ -1,4 +1,3 @@
-package Automation.morscode;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class MorseCodeConverterTest {
@@ -34,19 +33,4 @@ public class MorseCodeConverterTest {
        MorseCodeConverter converter = new MorseCodeConverter();
        assertEquals("Fel: Ogiltigt morsekod - -----", converter.morseToEnglish(".... . .-.. .-.. --- -----"));
    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
