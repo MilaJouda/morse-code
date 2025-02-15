@@ -12,32 +12,30 @@ public class MorseCodeConverter {
                 "..-", "...-", ".--", "-..-", "-.--", "--.."};
 
         for (int i = 0; i < letters.length; i++) {
-            englishToMorse.put(String.valueOf(letters[i].charAt(0)), morseCodes[i]); // Engelsk bokstav  till Morse
+            englishToMorse.put(String.valueOf(letters[i].charAt(0)), morseCodes[i]); // Engelsk bokstav till Morse
             morseToEnglish.put(morseCodes[i], String.valueOf(letters[i].charAt(0))); // morse till engelsk bokstav
         }
-
     }
 
-    // konverterar engelsk text till mordekod
+    // Konverterar engelsk text till morsekod
     public String englishToMorse(String text) {
         String result = "";
+
         try {
             for (char c : text.toUpperCase().toCharArray()) {
-                String letters = String.valueOf(c);
-                if (englishToMorse.containsKey(letters)) {
-                    result = result.concat(englishToMorse.get(letters)).concat(" ");
-
-                } else {
-                    return "Fel: Ogiltigt tecken i engelsk text -" + letters;
+                String letter = String.valueOf(c);
+                if (letter.equals(" ")) {
+                    continue;
                 }
+                result = result.concat(englishToMorse.get(letter)).concat(" ");
             }
         } catch (Exception e) {
-            return "Ett fel uppstod vid konvertering från engelska text till morsekod.";
+            return "Fel: Ogiltigt tecken i engelsk text";
         }
         return result.trim();
     }
 
-    // konverter morsekod till engelsk text.
+    // Konverter morsekod till engelsk text
     public String morseToEnglish(String morse) {
         if (morse.isEmpty()) {
             return "";
@@ -46,15 +44,10 @@ public class MorseCodeConverter {
 
         try {
             for (String morseChar : morse.split(" ")) {
-                if (morseToEnglish.containsKey(morseChar)) {
-                    result = result.concat(morseToEnglish.get(morseChar));
-                } else {
-                    return "Fel: Ogiltigt morsekod - " + morseChar;
-                }
+                result = result.concat(morseToEnglish.get(morseChar));
             }
         } catch (Exception e) {
-            return " Ett fel uppstod vid konvertering från morsekod till engelsk text.";
-
+            return "Fel: Ogiltig morsekod";
         }
         return result;
     }

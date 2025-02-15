@@ -14,7 +14,6 @@ public class MorseCodeConverterTest {
         assertEquals("HELLO", converter.morseToEnglish(".... . .-.. .-.. ---"));
     }
 
-
     @Test
     public void testEmptyInput() {
         MorseCodeConverter converter = new MorseCodeConverter();
@@ -25,12 +24,12 @@ public class MorseCodeConverterTest {
     @Test
     public void testEnglishToMorseInvalidCharacter(){
         MorseCodeConverter converter = new MorseCodeConverter();
-        assertEquals("Fel: Ogiltigt tecken i engelsk text -1", converter.englishToMorse("HELL11"));
+        assertEquals("Fel: Ogiltigt tecken i engelsk text", converter.englishToMorse("HELL11"));
     }
 
    @Test
     public void testMorseToEnglishInvalidMorseCode(){
        MorseCodeConverter converter = new MorseCodeConverter();
-       assertEquals("Fel: Ogiltigt morsekod - -----", converter.morseToEnglish(".... . .-.. .-.. --- -----"));
+       assertEquals("Fel: Ogiltig morsekod", converter.morseToEnglish(".... . .-.. .-.. --- -----"));
    }
 }
